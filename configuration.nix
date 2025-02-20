@@ -152,8 +152,6 @@
     deno
     bun
     go
-    clang-tools
-    cmake
     neovim
     vulkan-tools
     fishPlugins.done
@@ -170,6 +168,11 @@
   };
 
   programs.fish.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+  ];
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -188,7 +191,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 5000 8080 8081 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
