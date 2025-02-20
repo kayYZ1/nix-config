@@ -42,27 +42,11 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
 
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-    # layout = "pl";
-    # variant = "";
-  # };
-
-  # Configure console keymap
-  # console.keyMap = "pl2";
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -91,6 +75,9 @@
     xwayland.enable = true;
   };
 
+  #Enable fish
+  programs.fish.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -102,13 +89,11 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-
-    # Modesetting is required.
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -116,16 +101,8 @@
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
 
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
     open = false;
 
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
@@ -138,36 +115,19 @@
     vim
     wget
     ghostty
+    git
     waybar
     dunst
     libnotify
     swww
     rofi-wayland
     dolphin
-    zed-editor
-    curl
-    git
-    bruno
-    nodejs_23
-    deno
-    bun
-    go
-    neovim
     vulkan-tools
-    fishPlugins.done
-    fishPlugins.fzf-fish
-    fishPlugins.forgit
-    fishPlugins.hydro
-    fzf
-    fishPlugins.grc
-    grc
   ];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
-
-  programs.fish.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code

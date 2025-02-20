@@ -1,5 +1,5 @@
 {
-  description = "Flaaake";
+  description = "Mein flake config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -25,11 +25,9 @@
           modules = [ ./configuration.nix ];
         };
       };
-      hmConfig = {
-        kz = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home.nix ];
-        };
+      homeConfigurations.kz = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
       };
     };
 }
