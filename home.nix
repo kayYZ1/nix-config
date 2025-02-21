@@ -87,28 +87,16 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = ''set fish_greeting'';
+    interactiveShellInit = ''
+      set fish_greeting "Hello there!"
+    '';
     plugins = [
-      {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "done";
-        src = pkgs.fishPlugins.done.src;
-      }
-      {
-        name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish;
-      }
-      {
-        name = "forgit";
-        src = pkgs.fishPlugins.forgit;
-      }
-      {
-        name = "hydro";
-        src = pkgs.fishPlugins.hydro;
-      }
+      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      { name = "done"; src = pkgs.fishPlugins.done.src; }
+      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+      { name = "forgit"; src = pkgs.fishPlugins.forgit.src; }
+      { name = "hydro"; src = pkgs.fishPlugins.hydro.src; }
+      { name = "tide"; src = pkgs.fishPlugins.tide.src; }
     ];
   };
 
