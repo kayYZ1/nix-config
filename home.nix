@@ -64,6 +64,7 @@
     bun
     go
     neovim
+    helix
   ];
 
   #home.file = { };
