@@ -6,9 +6,10 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     nnn
     curl
+    killall
 
     zip
     xz
@@ -77,7 +78,7 @@
   home.pointerCursor = {
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
-    size = 12;
+    size = 8;
   };
 
   programs.git = {
